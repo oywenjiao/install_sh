@@ -69,11 +69,11 @@ function phpsetup #setuppath #xiazaipath
 		sed -i 's/user = nobody/user = www/' $1/php/etc/php-fpm.d/www.conf
 		sed -i 's/group = nobody/group = www/' $1/php/etc/php-fpm.d/www.conf
 		sed -i 's/;rlimit_files = 1024/rlimit_files = 65535/' $1/php/etc/php-fpm.d/www.conf
-		sed -i 's/pm.max_children = 5/pm.max_children = 200/' $1/php/etc/php-fpm.d/www.conf
+		sed -i 's/pm.max_children = 5/pm.max_children = 20/' $1/php/etc/php-fpm.d/www.conf
 		sed -i 's/;pm.max_requests = 500/pm.max_requests = 65535/' $1/php/etc/php-fpm.d/www.conf
-		sed -i 's/pm.start_servers = 2/pm.start_servers = 100/' $1/php/etc/php-fpm.d/www.conf
+		sed -i 's/pm.start_servers = 2/pm.start_servers = 10/' $1/php/etc/php-fpm.d/www.conf
 		sed -i 's/pm.min_spare_servers = 1/pm.min_spare_servers = 10/' $1/php/etc/php-fpm.d/www.conf
-		sed -i 's/pm.max_spare_servers = 3/pm.max_spare_servers = 180/' $1/php/etc/php-fpm.d/www.conf
+		sed -i 's/pm.max_spare_servers = 3/pm.max_spare_servers = 18/' $1/php/etc/php-fpm.d/www.conf
 		sed -i 's#;slowlog = log/$pool.log.slow#slowlog = /data/logs/php/$pool.log.slow#' $1/php/etc/php-fpm.d/www.conf
 		sed -i 's/;request_terminate_timeout = 0/request_terminate_timeout = 5s/' $1/php/etc/php-fpm.d/www.conf
 		sed -i 's/;request_slowlog_timeout = 0/request_slowlog_timeout = 3s/' $1/php/etc/php-fpm.d/www.conf
